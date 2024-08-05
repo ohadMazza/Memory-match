@@ -251,8 +251,6 @@ main{
 }
 
 
-
-
 /* //////////////////////    TABLET  /////////////////////// */
 
 @media screen and (min-width:768px) {
@@ -339,5 +337,11 @@ main{
     .level-btn span {
         margin-block:10px ;
         font-size: 26px;
+    }
+}
+
+@media (prefers-color-scheme: dark) {
+    .header-text span{
+        color: rgb(34, 34, 34);
     }
 }
