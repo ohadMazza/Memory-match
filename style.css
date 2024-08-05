@@ -1,0 +1,343 @@
+/* //////////////////////    MOBILE  /////////////////////// */
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background-color:rgb(249, 241, 229);
+    height: 100vh;
+    width: 100vw;
+}
+
+main{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    background: url('img/background/background.jpg') no-repeat  ;
+    background-size: cover;
+    overflow: hidden;
+}
+
+.level-container{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.header-text{
+    margin-top: 50px;
+    font-family: "ABeeZee", sans-serif;
+    font-size: 1.3em;
+    position: relative;
+}
+
+.header-text span{
+    position: relative;
+    display: inline-block;
+    text-transform: uppercase;
+    animation: animate 5s ease-in-out infinite;
+    animation-delay: calc(0.1s * var(--i));
+}
+
+@keyframes animate{
+    0%, 12%, 100%{
+        transform: translateY(0);
+    }
+    6%{
+        transform: translateY(-30px);
+    }
+}
+
+.levels{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height:100%;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.level-btn{
+    width: 30%;
+    max-width: 230px;
+    display: flex;
+    flex-direction: column;
+}
+
+.level-btn img {
+    width: 100%;
+}
+
+.level-btn span {
+    text-align: center;
+    margin-block:10px ;
+    font-size: 20px;
+    font-family: "ABeeZee", sans-serif;
+}
+
+.game-container{
+    width: 100%;
+    height: 100%;
+    display: none;
+    flex-direction: column;
+}
+
+.home-page-icon{
+    width: 100%;
+}
+
+.home-page-icon button{
+    height: 100%;
+    margin: 15px 0 0 15px;
+    height: 30px;
+}
+
+.home-page-icon img{
+    height: 100%;
+}
+
+:root {
+    --itemsInRow: 5;
+    --rows: 2;
+    --size: min(calc(82vw / var(--itemsInRow)), 250px);
+}
+
+.grid{
+    display: grid;
+    grid-template-columns: repeat(var(--itemsInRow), var(--size));
+    grid-template-rows: repeat(var(--rows), var(--size));
+    grid-gap: calc(var(--size) / 6);
+    margin:auto;
+}
+
+.card-container {
+    perspective: 500px;
+    width: 100%;
+    height: 100%;
+}
+
+.card-container:hover{
+    cursor: pointer;
+}
+
+.card {
+    position: relative;
+    transition: transform 800ms;
+    transform-style: preserve-3d;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.front,
+.back{
+    position: absolute;
+    backface-visibility: hidden;
+    width: 100%;
+    height: 100%;
+}
+
+.card:not(:first-child) img{
+    border-radius: 2rem;
+    box-shadow: 0 0 5px 2px rgba(50, 50, 50, 0.25);
+}
+
+.match-cards{
+    width:0px !important;
+    height:0px !important;
+    transition: width 0.3s ease 0.5s, height 0.3s ease 0.5s;
+}
+
+.flip{
+    transform: rotateY(180deg);
+}
+
+.front img,.back img{
+    width: 100%;
+    height: 100%;
+}
+
+.back{
+    transform: rotateY(180deg);
+}
+
+.game-over{
+    display: none;
+    width: 100%;
+    height:100%;
+    align-items: center;
+    justify-content: center;
+}
+
+.play-again{
+    width: fit-content;
+    font-size: 2em;
+    font-family: "ABeeZee", sans-serif;
+    padding: 20px 40px;
+    border: none;
+    border-radius: 50px;
+    background-color: #F0A8D0;
+    color: black;
+    z-index: 1;
+}
+
+.flick{
+    color: white;
+}
+
+.confeti{
+    position: absolute;
+    width: 100%;
+    height: calc(100% - 45px);
+    opacity: 0.8;
+}
+
+.confeti img{
+    width: 100%;
+    height: 100%;
+}
+
+@media (orientation: portrait) {
+
+    .header-text{
+        font-size: 1.4em;
+    }
+
+    .levels{
+        flex-direction: column;
+    }
+
+    :root {
+        --size: min(calc((84vh - 45px) / var(--itemsInRow)), 250px);
+    }
+
+    .grid{
+        grid-template-columns: repeat(var(--rows), var(--size));
+        grid-template-rows: repeat(var(--itemsInRow), var(--size));
+    }
+}
+
+@media (orientation: landscape) {
+
+    .level-container{
+        padding-inline: 8%;
+    }
+
+    .header-text{
+        font-size: 2em;
+    }
+
+    .level-btn{
+    width: 25%;
+    }
+
+    :root {
+        --size: min(calc(82vw / var(--itemsInRow)), 250px);
+    }
+
+    .grid {
+        grid-template-columns: repeat(var(--itemsInRow), var(--size));
+        grid-template-rows: repeat(var(--rows), var(--size));
+    }
+}
+
+
+
+
+/* //////////////////////    TABLET  /////////////////////// */
+
+@media screen and (min-width:768px) {
+
+    .home-page-icon button{
+        height: 50px;
+    }
+
+    @media (orientation: portrait) {
+
+        .header-text{
+            font-size: 3em;
+            margin-top: 70px;
+        }
+
+        .levels{
+            flex-direction: column;
+        }
+
+        .level-btn span {
+            font-size: 2.2em;
+        }
+
+        :root {
+            --size: min(calc((84vh - 45px) / var(--itemsInRow)), 250px);
+        }
+
+        .grid{
+            grid-template-columns: repeat(var(--rows), var(--size));
+            grid-template-rows: repeat(var(--itemsInRow), var(--size));
+        }
+    }
+
+    @media (orientation: landscape) {
+
+        .level-container{
+            padding-inline: 8%;
+        }
+
+        .header-text{
+            font-size: 2em;
+        }
+
+        .level-btn{
+        width: 25%;
+        }
+
+        :root {
+            --size: min(calc(82vw / var(--itemsInRow)), 250px);
+        }
+
+        .grid {
+            grid-template-columns: repeat(var(--itemsInRow), var(--size));
+            grid-template-rows: repeat(var(--rows), var(--size));
+        }
+    }
+}
+
+/* //////////////////////    DESKTOP  /////////////////////// */
+
+@media screen and (min-width:1060px) {
+    .header-text{
+        margin-top: 150px;
+        font-size: 3.5em;
+    }
+
+    @keyframes animate{
+        0%, 12%, 100%{
+            transform: translateY(0);
+        }
+        6%{
+            transform: translateY(-80px);
+        }
+    }
+
+    .level-container{
+        padding-inline: 12%;
+    }
+
+    .levels{
+        flex-direction: row;
+    }
+
+    .level-btn span {
+        margin-block:10px ;
+        font-size: 26px;
+    }
+}
