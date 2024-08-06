@@ -106,7 +106,7 @@ main{
 :root {
     --itemsInRow: 5;
     --rows: 2;
-    --size: min(calc(82vw / var(--itemsInRow)), 250px);
+    --size: min(calc(82vw / var(--itemsInRow)), 200px);
 }
 
 .grid{
@@ -275,7 +275,7 @@ main{
         }
 
         :root {
-            --size: min(calc((84vh - 45px) / var(--itemsInRow)), 250px);
+            --size: min(calc((84vh - 45px) / var(--itemsInRow)), 200px);
         }
 
         .grid{
@@ -299,7 +299,7 @@ main{
         }
 
         :root {
-            --size: min(calc(82vw / var(--itemsInRow)), 250px);
+            --size: min(calc(82vw / var(--itemsInRow)), 200px);
         }
 
         .grid {
